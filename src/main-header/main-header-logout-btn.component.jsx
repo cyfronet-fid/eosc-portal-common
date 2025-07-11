@@ -30,7 +30,7 @@ export default class EoscMainHeaderLogoutBtn extends Component {
     profileLinks: PropTypes.array,
     showEoscLinks: PropTypes.bool,
     logoutUrl: requiredIf(PropTypes.string, (props) => !props["(onLogout)"] || props["(onLogout)"].trim() === ""),
-    "(onLogout)": requiredIf(isJsScript, (props) => !props.logoutUrl || props.logoutUrl.trim() === ""),
+    "(onLogout)": requiredIf(isJsScript, (props) => !props.logoutUrl || props.logoutUrl.trim() === "")
   };
 
   static defaultProps = {
@@ -38,7 +38,7 @@ export default class EoscMainHeaderLogoutBtn extends Component {
     profileLinks: [],
     logoutUrl: "",
     showEoscLinks: false,
-    "(onLogout)": "",
+    "(onLogout)": ""
   };
 
   eoscLinks() {
@@ -50,7 +50,7 @@ export default class EoscMainHeaderLogoutBtn extends Component {
       // favourites will be move shortly to dashboard
       // { href: "/favourites", caption: "Favourite resources", "data-e2e": "favourites" },
       { href: `${marketplaceUrl}/profile`, caption: "Profile", "data-e2e": "profile" },
-      { href: `${marketplaceUrl}/api_docs`, caption: "Marketplace API", "data-e2e": "marketplace-api" },
+      { href: `${marketplaceUrl}/api_docs`, caption: "Marketplace API", "data-e2e": "marketplace-api" }
     ];
   }
 

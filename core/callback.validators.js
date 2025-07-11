@@ -47,9 +47,9 @@ export const isStaticallyValid = (callback) => !!callback && callback.trim() !==
 export const isDynamicallyValid = (callback, event = {}) => {
   try {
     if (callback.includes("$event")) {
-      return !!new Function("$event", callback); // eslint-disable-line
+      return !!new Function("$event", callback);
     }
-    return !!new Function(`{ return ${callback} };`); // eslint-disable-line
+    return !!new Function(`{ return ${callback} };`);
   } catch (e) {
     throw new Error(`Calling ${callback} on ${event.type} ${event.target} has been crashed: ${e}`);
   }

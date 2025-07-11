@@ -27,7 +27,7 @@ consistent visualization and events triggering through many services.
 
 Only for build purposes
 
-- nodejs >= 14.17.1 LTE
+- nodejs >= 20.19.3 LTE
 
 ### Bucket policy update
 Sometimes reading files may not work. To fix the issue run [Update bucket policy workflow](https://github.com/cyfronet-fid/eosc-portal-common/actions/workflows/update-bucket-policy.yaml)
@@ -35,8 +35,7 @@ Sometimes reading files may not work. To fix the issue run [Update bucket policy
 ### Dependencies installation
 
 ```bash
-npm install -g gulp-cli
-npm i
+yarn install
 ```
 
 ### Development
@@ -45,7 +44,7 @@ npm i
 - Run site locally with the custom components
   > Browser will be opened at http://localhost:3000/documentation/index.html
   ```bash
-  npm start
+  yarn start
   ```
 - Provided changes in `.jsx` and `.scss` files will re-render the docs page
 
@@ -67,7 +66,7 @@ Building process produce `*.min.js`, `*.min.css` files into `dist` folder by def
 Examples
 
 ```bash
-gulp build_lib --mode development --env env/env.production.js
+gulp build --mode development --env env/env.production.js
 ```
 
 ### Prerequisites

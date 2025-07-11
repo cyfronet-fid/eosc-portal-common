@@ -9,24 +9,24 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: "20"
       - name: Cache node modules
         uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
-          path: ~/.npm
+          path: ~/.yarn
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install dependecies
-        run: npm install
+        run: yarn install
       - name: Move env file
         run: mv env/env.production.js env/env.js
       - name: Run unit tests
-        run: npm test
+        run: yarn test

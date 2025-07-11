@@ -1,11 +1,11 @@
-@import "shared";
+@use "shared";
 
 .eosc-common {
   &.top {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-normal;
+    font-size: shared.$font-size-sm;
+    font-weight: shared.$font-weight-normal;
     padding: 15px 0;
-    background: $color-white;
+    background: shared.$color-white;
 
     .container {
       padding-right: 15px;
@@ -42,7 +42,7 @@
 
     .right-links {
       text-align: right;
-      color: $color-primary;
+      color: shared.$color-primary;
       flex-basis: auto;
       align-items: center;
       display: flex;
@@ -52,14 +52,18 @@
         margin-left: 0;
 
         a {
-          border: 1px solid $color-primary;
+          border: 1px solid shared.$color-primary;
           border-radius: 24px;
-          background: $color-white;
+          background: shared.$color-white;
           font-size: 14px;
           font-weight: 400;
           position: relative;
           padding: 7px 20px 7px 38px;
           transition: all 0.25s ease;
+
+          svg {
+            margin-right: 3em;
+          }
 
           &:before {
             content:'';
@@ -77,7 +81,7 @@
             -webkit-box-shadow: 0px 0px 12px 0px rgba(66, 68, 90, 0.2);
             -moz-box-shadow: 0px 0px 12px 0px rgba(66, 68, 90, 0.2);
             box-shadow: 0px 0px 12px 0px rgba(66, 68, 90, 0.2);
-            color: $color-primary;
+            color: shared.$color-primary;
           }
         }
       }
@@ -87,7 +91,7 @@
         margin-right: 0;
 
         a {
-          color: $color-primary;
+          color: shared.$color-primary;
           font-size: 14px;
         }
       }
@@ -104,8 +108,8 @@
           height: 32px;
           line-height: 32px;
           text-align: center;
-          background: #EDF4FF;
-          color: $color-primary;
+          background: none;
+          color: shared.$color-primary;
 
           > svg {
             margin-left: auto;
@@ -123,13 +127,13 @@
       padding: 0;
       margin: 0;
       list-style: none;
-      line-height: calc(1.5 * #{$font-size-base});
+      line-height: calc(1.5 * #{shared.$font-size-base});
 
       li {
         margin: 0 calc(0.5 * 20px);
         display: inline-block;
-        font-size: $font-size-sm;
-        color: $palette-gray-80;
+        font-size: shared.$font-size-sm;
+        color: shared.$palette-gray-80;
 
         svg {
           width: 15px;
@@ -138,18 +142,18 @@
         }
 
         a {
-          color: $palette-gray-80;
+          color: shared.$palette-gray-80;
           padding-bottom: 4px;
           font-weight: 400;
           text-decoration: none;
 
           &.active {
-            border-bottom: 2px solid $color-primary;
+            border-bottom: 2px solid shared.$color-primary;
             font-weight: 400;
           }
 
           &:hover {
-            color: $palette-gray-50;
+            color: shared.$palette-gray-50;
             text-decoration: none;
           }
         }
@@ -231,7 +235,7 @@ ul.login-dropdown {
 
 .commons-header .menu li a:hover,
 .commons-header .menu-btn:hover {
-  color: $color-primary;
+  color: shared.$color-primary;
 }
 
 /* menu */

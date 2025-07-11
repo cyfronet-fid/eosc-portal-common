@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import PropTypes from "prop-types";
 import requiredIf from "react-required-if";
-import { Component } from "preact";
+import { h, Component } from "preact";
 import { getCookieConfig, LOGIN_ATTEMPT_COOKIE_NAME } from "./auto-login.utils";
 import { isJsScript } from "../../core/callback.validators";
 import callAll from "../../core/callback";
@@ -10,12 +10,12 @@ import { usePropTypes } from "../../core/utils";
 export default class EoscMainHeaderLoginBtn extends Component {
   static propTypes = {
     loginUrl: requiredIf(PropTypes.string, (props) => !props["(onLogin)"] || props["(onLogin)"].trim() === ""),
-    "(onLogin)": requiredIf(isJsScript, (props) => !props.loginUrl || props.loginUrl.trim() === ""),
+    "(onLogin)": requiredIf(isJsScript, (props) => !props.loginUrl || props.loginUrl.trim() === "")
   };
 
   static defaultProps = {
     loginUrl: "",
-    "(onLogin)": "",
+    "(onLogin)": ""
   };
 
   render(props) {

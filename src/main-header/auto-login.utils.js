@@ -31,7 +31,7 @@ export function getCookieConfig(domain) {
     domain,
     expires: new Date(new Date().getTime() + AUTOLOGIN_COOKIE_LIFE_MS),
     secure: environment.production,
-    sameSite: "strict",
+    sameSite: "strict"
   };
 }
 

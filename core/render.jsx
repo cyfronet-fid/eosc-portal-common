@@ -11,7 +11,7 @@ export function renderComponent(cssSelector, Component, elementAttr = {}) {
   elementsToBeRendered.forEach((element) => {
     const params = {
       ...fetchPropertiesFrom(element),
-      ...elementAttr,
+      ...elementAttr
     };
     render(<Component {...params} />, element);
   });

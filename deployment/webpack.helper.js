@@ -11,7 +11,7 @@ exports.webpackConfig = (production) => ({
       new TerserPlugin({
         terserOptions: {
           ecma: "5",
-          topLevel: true,
+          toplevel: true,
           compress: true,
           keep_classnames: true,
           keep_fnames: true,

@@ -6,7 +6,7 @@ module.exports = {
     alias: {
       react: "preact/compat",
       "react-dom/test-utils": "preact/test-utils",
-      "react-dom": "preact/compat", // Must be below test-utils
+      "react-dom": "preact/compat",
       "react/jsx-runtime": "preact/jsx-runtime",
     },
   },
@@ -17,34 +17,48 @@ module.exports = {
         exclude: /node_modules|\.git/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: [
+              ["@babel/preset-env", {
+                targets: {
+                  node: "current"
+                },
+                modules: false
+              }],
+              ["@babel/preset-react", {
+                runtime: "automatic",
+                importSource: "preact"
+              }]
+            ],
+            plugins: [
+              ["@babel/plugin-proposal-decorators", { legacy: true }],
+              ["@babel/plugin-transform-react-jsx", {
+                runtime: "automatic",
+                importSource: "preact"
+              }]
+            ]
+          }
         },
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
+        type: "asset/resource",
+        generator: {
+          filename: "[name].css"
+        },
         use: [
           {
-            loader: "file-loader",
-            options: { name: "[name].css" },
-          },
-          "sass-loader",
-        ],
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            }
+          }
+        ]
       },
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(jpg|png|svg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "img/",
-              name: "[name].[ext]",
-            },
-          },
-        ],
       },
     ],
   },

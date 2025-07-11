@@ -7,7 +7,6 @@ import { getAuthBtn, isBtnActive } from "./main-header.utils";
 import { isJsScript } from "../../core/callback.validators";
 import { renderComponent } from "../../core/render";
 import { fieldsToCamelCase, usePropTypes } from "../../core/utils";
-import React from 'react';
 import RWD from "../../core/rwd.hoc";
 
 /**
@@ -19,24 +18,24 @@ class EoscCommonMainHeader extends Component {
      * Username property
      */
     username: PropTypes.string,
-    "login-url": PropTypes.string,
-    "logout-url": PropTypes.string,
-    "on-login": isJsScript,
-    "on-logout": isJsScript,
+    "loginUrl": PropTypes.string,
+    "logoutUrl": PropTypes.string,
+    "onLogin": isJsScript,
+    "onLogout": isJsScript,
     autoLogin: PropTypes.bool,
-    "show-eosc-links": PropTypes.bool,
-    "profile-links": PropTypes.string
+    "showEoscLinks": PropTypes.bool,
+    "profileLinks": PropTypes.string
   };
 
   static defaultProps = {
     username: "",
-    "login-url": "",
-    "logout-url": "",
-    "on-login": "",
-    "on-logout": "",
+    "loginUrl": "",
+    "logoutUrl": "",
+    "onLogin": "",
+    "onLogout": "",
     autoLogin: true,
-    "show-eosc-links": false,
-    "profile-links": '[]'
+    "showEoscLinks": false,
+    "profileLinks": "[]"
   };
 
   render(props) {
@@ -44,7 +43,7 @@ class EoscCommonMainHeader extends Component {
      * IMPORTANT!!! By default is on
      */
     const parsedProps = fieldsToCamelCase(usePropTypes(props, EoscCommonMainHeader));
-    parsedProps.profileLinks = JSON.parse(parsedProps.profileLinks)
+    parsedProps.profileLinks = JSON.parse(parsedProps.profileLinks);
     const { autoLogin } = parsedProps;
     if (isAutologinOn(autoLogin)) {
       tryAutologin(parsedProps);
@@ -72,7 +71,7 @@ class EoscCommonMainHeader extends Component {
                       isActive: isBtnActive(
                         environment.mainHeaderConfig.map((btn) => btn.url),
                         config.url
-                      ),
+                      )
                     }}
                   />
                 ))}

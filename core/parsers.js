@@ -8,7 +8,7 @@ export const fetchPropertiesFrom = (element) => {
   Object.assign(
     properties,
     ...Array.from(element.attributes).map((attribute) => ({
-      [attribute.nodeName.replace(/^(data-)/, "")]: attribute.nodeValue,
+      [attribute.nodeName.replace(/^(data-)/, "")]: attribute.nodeValue
     }))
   );
   return properties;
