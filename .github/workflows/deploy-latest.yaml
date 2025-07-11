@@ -1,4 +1,4 @@
-name: Deploy latest lib
+name: Deploy Latest
 on:
   push:
     branches:
@@ -8,30 +8,30 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: "20"
       - name: Cache node modules
         uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
-          path: ~/.npm
+          path: ~/.yarn
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install dependecies
-        run: npm install && npm install -g gulp-cli
+        run: yarn install && yarn global add gulp-cli
       - name: Build libraries with different data sets
         run: |
-          gulp build_lib --production --env env/env.production.js
-          gulp build_lib --production --env env/env.development.js
-          gulp build_lib --production --env env/env.beta.js
+          gulp build --production --env env/env.production.js
+          gulp build --production --env env/env.development.js
+          gulp build --production --env env/env.beta.js
       - name: Build documentation
-        run: npm run build:docs
+        run: yarn run build:docs
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks

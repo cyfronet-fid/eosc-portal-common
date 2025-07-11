@@ -10,7 +10,7 @@ export function fieldsToCamelCase(object) {
   Object.assign(
     objectWithCamelCaseFields,
     ...Object.keys(object).map((key) => ({
-      [_toCamelCase(key)]: object[key],
+      [_toCamelCase(key)]: object[key]
     }))
   );
   return objectWithCamelCaseFields;

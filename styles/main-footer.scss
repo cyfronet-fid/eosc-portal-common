@@ -1,10 +1,10 @@
-@import "shared";
+@use "shared";
 
 .eosc-common {
 
   &.footer-common {
     width: 100%;
-    background-color: $color-7;
+    background-color: shared.$color-7;
     font-weight: 300;
     padding: 60px 0 32px 0;
 
@@ -25,34 +25,34 @@
     }
 
     ul {
-      line-height: calc(1.1 * #{$font-size-base});
+      line-height: calc(1.1 * #{shared.$font-size-base});
       padding: 0;
       list-style: none;
       margin: 0;
 
       li {
         margin-bottom: 14px;
-        font-size: calc(0.68 * #{$font-size-base});
+        font-size: calc(0.68 * #{shared.$font-size-base});
         font-weight: 700;
-        color: $color-7;
+        color: shared.$color-7;
 
         a {
           font-size: 28px;
           font-family: "Quicksand";
           font-weight: 600;
           line-height: 1.1;
-          color: $color-black;
+          color: shared.$color-black;
 
           &:hover {
             text-decoration: none;
-            color: $color-8;
+            color: shared.$color-8;
           }
         }
       }
     }
 
     .title {
-      color: $color-white;
+      color: shared.$color-white;
       font-weight: 700;
       line-height: 1.2;
       text-transform: uppercase;
@@ -62,23 +62,23 @@
       a {
         font-size: 11px;
         text-transform: uppercase;
-        color: $color-white;
+        color: shared.$color-white;
         font-weight: 700;
       }
     }
 
     a {
-      color: $color-white;
-      font-size: calc(1 * #{$font-size-base});
+      color: shared.$color-white;
+      font-size: calc(1 * #{shared.$font-size-base});
 
       &:hover {
-        color: $color-white;
+        color: shared.$color-white;
         text-decoration: underline;
       }
     }
 
     hr {
-      border-color: $color-6;
+      border-color: shared.$color-6;
     }
 
     .logo-row {
@@ -122,17 +122,17 @@
         a {
           font-size: 14px;
           font-weight: 400;
-          color: $color-8;
+          color: shared.$color-8;
 
           &:hover {
-            color: $color-black;
+            color: shared.$color-black;
           }
         }
       }
     }
 
     a {
-      font-size: calc(0.75 * #{$font-size-base});
+      font-size: calc(0.75 * #{shared.$font-size-base});
       color: #828282;
 
       &:hover {
