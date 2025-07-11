@@ -26,7 +26,7 @@ export function isBtnActive(btnsUrls, btnUrl) {
 }
 
 export function getAuthBtn(props) {
-  // eslint-disable-next-line object-curly-newline
+
   const { loginUrl, logoutUrl, onLogin, onLogout } = props;
   if (!loginUrl && !logoutUrl && !onLogin && !onLogout) {
     return null;

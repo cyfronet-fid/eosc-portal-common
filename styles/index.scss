@@ -1,7 +1,7 @@
+@use "main-header";
+@use "main-footer";
+@use "global";
+
 .eosc-common {
   @import "../node_modules/bootstrap/scss/bootstrap";
 }
-
-@import "main-header";
-@import "main-footer";
-@import "global";

@@ -5,14 +5,14 @@ describe("Parsers", () => {
     const element = {
       attributes: [
         {
-          nodeName: "(on-login)",
-          nodeValue: "console.log();",
+          nodeName: "(onLogin)",
+          nodeValue: "console.log();"
         },
         {
           nodeName: "login-url",
-          nodeValue: "https://test.pl",
-        },
-      ],
+          nodeValue: "https://test.pl"
+        }
+      ]
     };
     const parsedAttributes = fetchPropertiesFrom(element);
     const elementSortedNames = element.attributes.map((node) => node.nodeName).sort();

@@ -19,9 +19,9 @@ function _call(JSscript, event = {}) {
   _toCallbacks(JSscript).forEach((callback) => {
     try {
       if (callback.includes("$event")) {
-        new Function("$event", callback)(event); // eslint-disable-line
+        new Function("$event", callback)(event);
       } else {
-        new Function(`{ return ${callback} };`).call(null); // eslint-disable-line
+        new Function(`{ return ${callback} };`).call(null);
       }
     } catch (e) {
       if (event) {

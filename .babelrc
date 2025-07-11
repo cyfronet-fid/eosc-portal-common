@@ -1,35 +1,44 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "debug": false,
-        "modules": false,
-        "useBuiltIns": false,
-        "targets": {
-          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-        }
-      }
-    ]
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "current"
+      },
+      "modules": false
+    }],
+    ["@babel/preset-react", {
+      "runtime": "automatic",
+      "importSource": "preact"
+    }]
   ],
   "plugins": [
-    [
-      "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
-    ],
-    [
-      "@babel/plugin-transform-react-jsx",
-      {
-        "runtime": "automatic",
-        "importSource": "preact"
-      }
-    ]
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-transform-react-jsx", {
+      "runtime": "automatic", 
+      "importSource": "preact"
+    }]
   ],
   "env": {
     "test": {
-      "presets": [[ "@babel/preset-env", { "modules": "auto", "targets": { "node": "current" }}]]
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": {
+            "node": "current"
+          },
+          "modules": "commonjs"
+        }],
+        ["@babel/preset-react", {
+          "runtime": "automatic",
+          "importSource": "preact"
+        }]
+      ],
+      "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/plugin-transform-react-jsx", {
+          "runtime": "automatic",
+          "importSource": "preact"
+        }]
+      ]
     }
   }
 }
