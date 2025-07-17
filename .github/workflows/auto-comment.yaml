@@ -69,8 +69,8 @@ jobs:
               <body>
                 <eosc-common-main-header
                   username="name surname"
-                  login-url="https://marketplace.eosc-portal.eu/users/auth/checkin"
-                  logout-url="https://marketplace.eosc-portal.eu/users/logout"
+                  login-url="https://marketplace.sandbox.eosc-beyond.eu/users/auth/checkin"
+                  logout-url="https://marketplace.sandbox.eosc-beyond.eu/users/logout"
                 ></eosc-common-main-header>
           
                 <EoscCommonMainFooter></EoscCommonMainFooter>
