@@ -89,8 +89,8 @@ Simple page with custom components
   <body>
     <eosc-common-main-header
       username="name surname"
-      login-url="https://marketplace.eosc-portal.eu/users/auth/checkin"
-      logout-url="https://marketplace.eosc-portal.eu/users/logout"
+      login-url="https://marketplace.sandbox.eosc-beyond.eu/users/auth/checkin"
+      logout-url="https://marketplace.sandbox.eosc-beyond.eu/users/logout"
     ></eosc-common-main-header>
     <EoscCommonMainFooter></EoscCommonMainFooter>
 
@@ -111,8 +111,8 @@ Attaching only specific component from the [list](https://s3.cloud.cyfronet.pl/e
   <body>
     <eosc-common-main-header
       username="name surname"
-      login-url="https://marketplace.eosc-portal.eu/users/auth/checkin"
-      logout-url="https://marketplace.eosc-portal.eu/users/logout"
+      login-url="https://marketplace.sandbox.eosc-beyond.eu/users/auth/checkin"
+      logout-url="https://marketplace.sandbox.eosc-beyond.eu/users/logout"
     ></eosc-common-main-header>
 
     <script src="https://s3.cloud.cyfronet.pl/eosc-portal-common/main-header.production.min.js"></script>
@@ -134,8 +134,8 @@ Using render toolset to dynamically re-render components
   <body>
     <eosc-common-main-header
       username="name surname"
-      login-url="https://marketplace.eosc-portal.eu/users/auth/checkin"
-      logout-url="https://marketplace.eosc-portal.eu/users/logout"
+      login-url="https://marketplace.sandbox.eosc-beyond.eu/users/auth/checkin"
+      logout-url="https://marketplace.sandbox.eosc-beyond.eu/users/logout"
     ></eosc-common-main-header>
     <script>
       window.eosccommon.renderMainHeader("eosc-common-main-header");
