@@ -18,24 +18,26 @@ class EoscCommonMainHeader extends Component {
      * Username property
      */
     username: PropTypes.string,
-    "loginUrl": PropTypes.string,
-    "logoutUrl": PropTypes.string,
-    "onLogin": isJsScript,
-    "onLogout": isJsScript,
+    "login-url": PropTypes.string,
+    "logout-url": PropTypes.string,
+    "on-login": isJsScript,
+    "on-logout": isJsScript,
     autoLogin: PropTypes.bool,
-    "showEoscLinks": PropTypes.bool,
-    "profileLinks": PropTypes.string
+    "show-eosc-links": PropTypes.bool,
+    "profile-links": PropTypes.string,
+    "custom-tabs": PropTypes.string
   };
 
   static defaultProps = {
     username: "",
-    "loginUrl": "",
-    "logoutUrl": "",
-    "onLogin": "",
-    "onLogout": "",
+    "login-url": "",
+    "logout-url": "",
+    "on-login": "",
+    "on-logout": "",
     autoLogin: true,
-    "showEoscLinks": false,
-    "profileLinks": "[]"
+    "show-eosc-links": false,
+    "profile-links": "[]",
+    "custom-tabs": "[]"
   };
 
   render(props) {
@@ -43,7 +45,8 @@ class EoscCommonMainHeader extends Component {
      * IMPORTANT!!! By default is on
      */
     const parsedProps = fieldsToCamelCase(usePropTypes(props, EoscCommonMainHeader));
-    parsedProps.profileLinks = JSON.parse(parsedProps.profileLinks);
+    parsedProps.profileLinks = JSON.parse(parsedProps.profileLinks)
+    parsedProps.customTabs = JSON.parse(parsedProps.customTabs)
     const { autoLogin } = parsedProps;
     if (isAutologinOn(autoLogin)) {
       tryAutologin(parsedProps);

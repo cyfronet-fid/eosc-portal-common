@@ -27,9 +27,9 @@ jobs:
         run: yarn install && yarn global add gulp-cli
       - name: Build libraries with different data sets
         run: |
-          gulp build_lib --production --env env/env.production.js
-          gulp build_lib --production --env env/env.development.js
-          gulp build_lib --production --env env/env.beta.js
+          gulp build --production --env env/env.production.js
+          gulp build --production --env env/env.development.js
+          gulp build --production --env env/env.beta.js
       - name: Build documentation
         run: yarn run build:docs
       - uses: jakejarvis/s3-sync-action@master
