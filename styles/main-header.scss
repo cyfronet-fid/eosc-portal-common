@@ -149,7 +149,7 @@
       line-height: calc(1.5 * #{shared.$font-size-base});
 
       li {
-        margin: 0 calc(0.5 * 32px);
+        margin: 0 calc(0.5 * 20px);
         display: inline-block;
         font-size: shared.$font-size-sm;
         color: shared.$palette-gray-80;
