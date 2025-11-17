@@ -33,7 +33,6 @@ Only for build purposes
 Sometimes reading files may not work. To fix the issue run [Update bucket policy workflow](https://github.com/cyfronet-fid/eosc-portal-common/actions/workflows/update-bucket-policy.yaml)
 
 ### Dependencies installation
-
 ```bash
 yarn install
 ```
