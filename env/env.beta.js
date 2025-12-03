@@ -6,7 +6,7 @@ const environment = {
   mainHeaderConfig,
   mainFooterConfig,
   defaultConfiguration,
-  marketplaceUrl: "https://marketplace.sandbox.eosc-beyond.eu",
+  marketplaceUrl: "https://userspace.sandbox.eosc-beyond.eu",
   dashboardUrl: "https://my.sandbox.eosc-beyond.eu",
   production: false,
   windowTagName: "eosccommon",
