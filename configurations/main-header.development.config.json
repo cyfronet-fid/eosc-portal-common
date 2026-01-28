@@ -5,11 +5,11 @@
   },
   {
     "label": "Discovery Hub",
-    "url": "https://userspace.sandbox.eosc-beyond.eu"
+    "url": "https://integration.marketplace.sandbox.eosc-beyond.eu"
   },
   {
     "label": "Providers Hub",
-    "url": "https://providers.sandbox.eosc-beyond.eu/home"
+    "url": "https://integration.providers.sandbox.eosc-beyond.eu/home"
   },
   {
     "label": "Monitoring",
