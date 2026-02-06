@@ -26,7 +26,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependecies
+      - name: Install dependencies
         run: yarn install && yarn global add gulp-cli
       - name: Build libraries with different data sets
         run: |
@@ -35,13 +35,15 @@ jobs:
           gulp build --production --env env/env.beta.js
       - name: Build documentation
         run: yarn run build:docs
-      - uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
-          SOURCE_DIR: "dist"
-          DEST_DIR: "pr-${GITHUB_REF#refs/heads/}"
+
+      # link: https://github.com/minio/mc
+      - name: Install mc
+        run: curl -sSL https://dl.min.io/client/mc/release/linux-amd64/mc -o /usr/local/bin/mc && chmod +x /usr/local/bin/mc
+
+      - name: Configure S3 alias
+        run: mc alias set s3 "${{ secrets.AWS_S3_ENDPOINT }}" "${{ secrets.AWS_ACCESS_KEY_ID }}" "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --api S3v4
+
+      - name: Upload dist to S3 (per branch)
+        run: |
+          DEST="pr-${GITHUB_REF#refs/heads/}"
+          mc mirror --overwrite --remove --attr "x-amz-acl=public-read" dist/ s3/${{ secrets.AWS_S3_BUCKET }}/$DEST/
